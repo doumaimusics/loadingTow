@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+	<style>
+		*{padding: 0;margin: 0;}
+		body{position: relative;}
+		#loaddingWap{
+			display: none;
+			width: 100px;
+			height: 100px;
+			position:fixed;
+			left: 0;top: 0;
+			right: 0;bottom: 0;
+			margin: auto;
+			
+		}
+		#loaddingWap .loaddingImg{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;top: 0;
+			right: 0;bottom: 0;
+			margin: auto;
+		}
+	</style>
+	<body>
+		<input type="button" id="dianji" value="点击"/>
+		<br>
+		<br>
+		<br>
+		<input type="button" id="jishu" value="结束"/>
+	</body>
+</html>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+	//原生javascript写法
+//	添加加载项
+//  function addLoadding(){
+//  	var loaddingWap=document.createElement('div');
+//  	loaddingWap.setAttribute('id','loaddingWap');
+//  	var loaddingImg=document.createElement('img');
+//  	loaddingImg.src='loading.gif';
+//  	loaddingImg.setAttribute('class','loaddingImg');
+//  	loaddingWap.appendChild(loaddingImg);
+//  	document.body.appendChild(loaddingWap);
+//  	document.body.style.overflow='hidden';
+//  }    
+//  //删除加载项
+//  function dleLoadding(){
+//    var loaddingWap=document.getElementById('loaddingWap');
+//    document.body.removeChild(loaddingWap);
+//  }
+//  
+//  window.onload=function(){
+//  	var oBtn=document.getElementById('dianji');
+//  	oBtn.onclick=function(){
+//  		addLoadding();
+//  	}
+//  }
+
+
+//jquery方式写法
+function addLoadd(){
+	$('#loaddingWap').show();
+}
+function removeLoadd(){
+	$('#loaddingWap').hide();
+}
+$(function(){
+	$("<div id='loaddingWap'><img src='loading.gif' class='loaddingImg'></div>").appendTo('body');
+	
+	$('#dianji').click(function(){
+		addLoadd();
+	})
+	$('#jishu').click(function(){
+		removeLoadd();
+	})
+})
+</script>
